@@ -30,6 +30,10 @@ steps:
       args = parser.parse_args()
       print ('Hello ', args.world)      
     arguments: --world Venus
+    
+- task: PythonInstall@1
+  inputs:
+    scriptSource: inline
     script: |
       pip install pytest
       pip install pytest-cov
