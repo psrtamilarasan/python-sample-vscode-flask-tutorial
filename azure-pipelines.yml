@@ -23,14 +23,12 @@ steps:
     script: |
       print('Hello world 1')
       print('Hello world 2')   
-      
-- script: |
-    python -m pip install flake8
-    flake8 .
-displayName: 'Run lint tests'
  
-- script: python -m pip install --upgrade pip setuptools wheel
- displayName: 'Install tools'
+- script: |
+    pip install pytest
+    pip install pytest-cov
+    pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
+  displayName: 'Test with pytest'
  
 - task: PublishTestResults@2
   condition: succeededOrFailed()
