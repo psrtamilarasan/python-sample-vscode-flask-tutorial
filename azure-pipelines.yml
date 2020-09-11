@@ -32,7 +32,7 @@ steps:
     arguments: --world Venus
   
 - task: PythonTestWithPytest@1
-  inputes:
+  inputs:
     scriptSource: inline
     script: |
         pip install pytest
