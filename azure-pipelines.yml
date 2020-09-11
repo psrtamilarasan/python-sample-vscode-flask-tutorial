@@ -29,10 +29,6 @@ steps:
       parser.add_argument("--world", help="Provide the name of the world to greet.")
       args = parser.parse_args()
       print ('Hello ', args.world)      
-      pip install -r requirements.txt
-      pip install pytest
-      pip install pytest-cov
-      pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
     arguments: --world Venus
  
 - task: PublishTestResults@2
