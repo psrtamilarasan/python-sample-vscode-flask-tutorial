@@ -30,6 +30,11 @@ steps:
       args = parser.parse_args()
       print ('Hello ', args.world)      
     arguments: --world Venus
+    script: |
+      pip install pytest
+      pip install pytest-cov
+      pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html
+    displayName: 'Test with pytest'
  
 - task: PublishTestResults@2
   condition: succeededOrFailed()
